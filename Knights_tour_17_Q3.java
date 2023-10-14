@@ -8,12 +8,13 @@ public class Knights_tour_17_Q3 {
         }
 
         // recursive case
-        // try all next moves from the current coordinate x, y
         int k, nextX, nextY;
+
         // try all 8 possible moves from the current coordinate x, y
-        for (k = 0; k < 8; k++) {
+        for (k = 0; k < n; k++) {
             nextX = x + xMove[k];
             nextY = y + yMove[k];
+
             // check if the next move is safe or not
             if (isSafe(sol, nextX, nextY)) { // if safe, then make the move
                 sol[nextX][nextY] = moveI;
@@ -40,11 +41,11 @@ public class Knights_tour_17_Q3 {
             }
             System.out.println();
         }
-        System.out.println();
     }
 
     public static void main(String args[]) {
-        int sol[][] = new int[8][8];
+        int sol[][] = new int[n][n];
+
         // initialize the solution matrix with -1
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -59,10 +60,10 @@ public class Knights_tour_17_Q3 {
         sol[0][0] = 0;
 
         // start from 0, 0 and explore all tours using knightsMove()
-        if (!knightsMove(sol, xMove, yMove, 0, 0, 1)) {
-            System.out.println("No soltuion exist");
-        } else {
+        if (knightsMove(sol, xMove, yMove, 0, 0, 1)) {
             printSolution(sol);
+        } else {
+            System.out.println("No solution");
         }
     }
 }
