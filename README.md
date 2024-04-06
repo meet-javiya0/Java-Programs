@@ -1,4 +1,4 @@
-# DSA_with_JAVA
+# Java-Programs
 All my DSA learning and practice code is available in this repo.
 
 How to read the Name of the files?
